@@ -5,12 +5,6 @@ var path = require('path'),
 	extend = require('node.extend'),
 	inspect = require('util').inspect;
 
-// exports.PAGE = {
-// 	pageStart : {name:'pageStart', key:'s', optional: true},
-// 	pageLength : {name:'pageLength', key:'l', optional: true},
-// 	searchKey : {name:'searchKey', key:'k', optional: true}
-// }
-
 /**
  * 读取页面参数，做简单验证
  * @params : [{ name:'serviceName', key:'S', optional: true}]
