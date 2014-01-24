@@ -1,0 +1,104 @@
+html, body {
+    height: 100%;
+}
+
+.sidebar-nav {
+	padding: 0;
+}
+
+.sidebar-nav .icon-chevron-right {
+	float: right;
+	margin-top: 2px;
+	margin-right: -6px;
+	opacity: .25;
+}
+
+.sidebar-nav .icon-folder-open, .sidebar-nav .icon-folder-close {
+	margin-top: ppx;
+	opacity: .25;
+}
+
+
+#serviceCtlBar, #myTab, #statCtlBar, #stateSearchForm {
+    margin-bottom: 0px;
+}
+
+a{
+	cursor: pointer;
+}
+
+#allmap img{
+	max-width: none;
+}
+
+.action-icon{
+	float: right;
+	padding: 0px;
+	margin-left: 8px;
+}
+
+.gisobj{
+	width: 100%; 
+	overflow:hidden; 
+	text-overflow:ellipsis; 
+	white-space: nowrap; 
+	display: block; 	
+}
+
+#container {
+	padding: 41px 0 0 0;
+}
+
+.container-fluid {
+    margin: 0 auto;
+    height: 100%;
+    /* padding: 41px 0; */
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+.row-fluid {
+	height: 100%;
+}
+
+.ctlbar {
+	position: absolute; 
+	top: 41px; 
+	z-index: 99; 
+	-webkit-box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
+         box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+.layer-area{
+    overflow:auto;
+    height: 100%;
+    padding: 0;
+}
+
+.content-area {
+	overflow:auto;
+    height: 100%;
+    padding: 41px 0 0 0;
+}
+
+.footer {
+  background: red;
+  height: 20px;
+}
+
+.sidepannel {
+  min-height: 20px;
+  background-color: #f5f5f5;
+  border-left: 1px solid #e3e3e3;
+  z-index: 99; 
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+  -webkit-box-shadow: -5px 0px 5px rgba(0, 0, 0, 0.5);
+     -moz-box-shadow: -5px 0px 5px rgba(0, 0, 0, 0.5);
+          box-shadow: -5px 0px 5px rgba(0, 0, 0, 0.5);
+}
+

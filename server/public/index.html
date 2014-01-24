@@ -1,0 +1,554 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+	 <meta http-equiv="X-UA-Compatible" content="IE=8,9,10;FF=3;OtherUA=4">
+   <meta http-equiv="Cache-Control" content="no-store" />    
+	 <title>基于互联网地图的用户行为分析系统		</title>
+	 <link href="css/bootstrap.css" rel="stylesheet">
+   <link href="css/bootstrap-responsive.css" rel="stylesheet">
+   <link rel="stylesheet" href="css/sharepage.map.css" />
+   
+   <link rel="stylesheet" type="text/css" href="css/home.css" />
+  
+	
+	<style type="text/css">
+		.title {
+		  font-size: 24px;
+		  
+		  font-weight: normal;
+		  text-shadow: 1px 1px 1px rgb(6, 24, 12);
+		  color: rgb(120, 199, 135);
+		}
+		
+		.navdef {
+		  padding-right:10px;
+		  padding-top:10px;
+		}
+		
+		#tools {
+			position: relative;
+			height: 32px;
+			color: #333;
+			/*background: url(image/nav_bj_24a15l.gif) repeat-x 0 0;*/
+			background:rgb(207, 224, 221);
+			white-space: nowrap;
+			z-index: 21;
+			border-bottom: 2px solid #67AD03;
+		}
+		
+		.tools_r {
+			float:right;
+			padding-right:20px;
+		}
+		
+		.tools_l {
+			float:left;
+			padding-left:20px;
+		}
+		
+		
+		
+  </style>
+</head>
+<body onload="" style="overflow:hidden">
+   
+
+	  
+	  
+<div id="container" class="">
+  
+	   
+  <div id="header" >
+  	
+
+    <ul class="tabs">
+    	<li id="logo">
+        <H2 class="title">基于互联网地图的用户行为分析系统</H2>
+      </li>
+      <li style="float:right">
+    	<div class="navdef">
+        <ul class="nav nav-pills pull-right">
+            <li class="active"><a href="project.html">首页</a></li>
+            <li><a href="/main.html">地理信息管理</a></li>
+            <li><a href="#">CELL管理</a></li>
+						<li><a href="project.html">项目管理</a></li>
+						<li><a href="project.html">统计分析</a></li>
+						<li><a href="user.html">系统管理</a></li>
+						<li><a href="user.html">退出系统</a></li>
+        </ul>
+        
+       <li>
+      </div>
+    </ul>
+    
+
+  </div>
+  <div id="tools">
+  	<div class="tools_l">
+        <div class="btn-group">
+          <button class="btn btn-info">合肥</button>
+          <button class="btn btn-info dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <li><a href="#">蚌埠</a></li>
+            <li><a href="#">芜湖</a></li>
+            <li><a href="#">阜阳</a></li>
+            <li><a href="#">巢湖</a></li>
+          </ul>
+        </div>
+    </div>
+    <div class="tools_r">
+	  	<div class="btn-group">
+	        <button class="btn btn-success dropdown-toggle" data-toggle="dropdown">创建对象 <span class="caret"></span></button>
+	        <ul class="dropdown-menu">
+	          <li><a href="#">创建楼宇</a></li>
+	          <li><a href="#">创建物业点</a></li>
+	          <li><a href="#">创建区域</a></li>
+	          <li class="divider"></li>
+	          <li><a href="#">选择楼宇创建物业点</a></li>
+	        </ul>
+	     </div>
+	     
+	     <div class="btn-group">
+	        <button class="btn btn-success dropdown-toggle" data-toggle="dropdown">导入对象 <span class="caret"></span></button>
+	        <ul class="dropdown-menu">
+	          <li><a href="#">导入楼宇</a></li>
+	          <li><a href="#">导入CELL</a></li>
+	          <li><a href="#">导入区域</a></li>
+	        </ul>
+	     </div>
+	     
+   </div>
+  	
+  </div>
+  <!-- main content start-->
+  <div id="main-content" class="noscroll">
+    <div class="relative"></div>
+	  <div title="隐藏列表" id="panelarrow2">
+	    <div class="arrow_bg_img" id="panelimg2"></div>
+	  </div>
+	  <div id="listpost">
+	  	
+	    <div class="map-tool">
+	      <div class="row">
+	        <div class="span5">
+	          <div class="btn-group pull-left" >
+	            <button id="polygon_button" class="btn polygon drawing_mode pull-left" data-toggle="tooltip" data-placement="bottom" title="画多边形搜索，快捷键(D)">
+	              <div class="fs1" aria-hidden="true" data-icon="&#xe000"></div>
+	            </button>
+	            <button id="circle_button" class="btn polygon drawing_mode pull-left" data-toggle="tooltip" data-placement="bottom" title="画圈搜索，快捷键(E)"><i class="icon-circle-blank"></i></button>
+	          </div>
+	          <div class="map-search pull-left">
+	            <form name="searchMap" action="#" class="searchMap" method="post" onsubmit="return false;">
+	              <div class="input-append">
+	                <input name="searchInput" class="searchInput pull-left" size="15" type="text" placeholder="查询条件…" data-toggle="tooltip" data-placement="bottom" title="查询条件…"/>
+	                <button type="submit" class="btn btn-danger searchInputBtn pull-left"><i class="icon-search icon-large"></i></button>
+	              </div>
+	            </form>
+	          </div>
+	        </div>
+	      </div>
+	     
+	    
+	      <div class="duration row">
+	      </div>
+	    </div>
+	   
+	    <!--
+	    <div class="public-listings stretch scroll">
+	      <ul id="listings" class="listings">
+	        <li class="list_has_weibo">xxxxxxxxxx</li>
+	        <li class="list_by_user">ssssssssss</li>
+	      </ul>
+	    </div>
+	    
+	    -->
+	  </div>
+    <div id="allmap" class="mapCanvas" ></div>
+  </div>
+  
+  <div style="clear:both;"></div>
+
+  
+  
+  <div class="footer-home">
+  	<a href="#">footer</a>
+  </div>
+</div>
+  
+
+
+
+  <!--/.fluid-container-->
+	<div id="confirmDlg" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-header">
+	    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	    <h3 id="myModalLabel">再次确认:</h3>
+	  </div>
+	  <div class="modal-body">
+	    <p>是否确认要做这个动作？</p>
+	  </div>
+	  <div class="modal-footer">
+	    <button class="btn btn-primary ok" data-dismiss="modal">确认</button>
+	    <button class="btn no" data-dismiss="modal">取消</button>
+	  </div>
+	</div>
+
+	<!-- 详细查询 -->
+     <div id="detailSearch"  class="collapse">
+        <div class="well">
+        <form id="stateSearchForm">
+           <div class="controls controls-row">
+              <input type="text" class="span3" placeholder="开始时间">
+              <input type="text" class="span3" placeholder="结束时间">
+              <button type="submit" class="btn span2">查询</button>
+            </div>
+		  
+		    <div class="controls controls-row ">
+                <label class="radio span1">
+				  <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>调入
+				</label>
+				<label class="radio span1">
+				  <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">调出
+				</label>
+				<input type="text" class="span4" placeholder="接口名称">
+            </div>
+		</form>	
+		</div>			  
+    </div>
+
+    <!-- 详细查询 -->
+     <div id="buildingInfo" class="hide" >
+		<table class="table table-bordered table-striped">
+            <colgroup>
+              <col class="span1">
+              <col class="span7">
+            </colgroup>
+            <thead>
+              <tr>
+                <th>信息</th>
+                <th>内容</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>楼宇名称</td>
+                <td id="buildingNameTd">中心小区12号楼</td>
+              </tr>
+              <tr>
+                <td>归属物业点</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>地市</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>经纬度</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>区域类型1/2/3</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>层数</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>面积（平方米）</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>常驻人数</td>
+                <td>150</td>
+              </tr>
+              <tr>
+                <td>建筑年代</td>
+                <td>70年代</td>
+              </tr>
+			  <tr>
+                <td>照片</td>
+                <td><a class="showBuildingImgBtn">照片1 照片2</a></td>
+              </tr>
+            </tbody>
+          </table>	  
+    </div>
+
+
+    <div id="buildingImgDlg" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-header">
+	    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	    <h3 id="myModalLabel">楼宇照片</h3>
+	  </div>
+	  <div class="modal-body">
+	   	<div id="myCarousel" class="carousel slide">
+            <div class="carousel-inner">
+              <div class="item active">
+                <img src="uploads/building1.jpg" alt="">
+                <div class="carousel-caption">
+                  <h4>图片1</h4>
+                </div>
+              </div>
+              <div class="item">
+                <img src="uploads/building3.jpg" alt="">
+                <div class="carousel-caption">
+                  <h4>图片2</h4>
+                </div>
+              </div>
+            </div>
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
+          </div>
+	  </div>
+	  <div class="modal-footer">
+	    <button class="btn cancle" data-dismiss="modal" aria-hidden="true">退出</button>
+	  </div>
+	</div>
+
+    <!-- 楼宇编辑修改对话框 -->
+	<div id="buildingDlg" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-header">
+	    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	    <h3 id="myModalLabel">创建或更新楼宇信息</h3>
+	  </div>
+	  <div class="modal-body">
+	    <form id="buildingForm" class="form-horizontal">
+		  <div class="control-group">
+		    <label class="control-label" for="buildingName">楼宇名称:</label>
+		    <div class="controls">
+		      <input type="text" name="name" id="buildingName" placeholder="楼宇名称" class="required" >
+		    </div>
+		  </div>
+		  <div class="control-group">
+		    <label class="control-label" for="zonetype">区域类型:</label>
+		    <div class="controls">
+		      	<select name="zonetype" id="zonetype">
+					<option value="阜阳">类型1</option>
+					<option value="阜南">类型2</option>
+					<option value="界首">类型3</option>
+				</select>
+		    </div>
+		  </div>
+		  <div class="control-group">
+		    <label class="control-label" for="flowlevel">层数:</label>
+		    <div class="controls">
+		      <input type="text" name="flowlevel" id="flowlevel" placeholder="层数">
+		    </div>
+		  </div>
+		  <div class="control-group">
+		    <label class="control-label" for="areasize">面积（平方米）:</label>
+		    <div class="controls">
+		      <input type="text" name="areasize" id="areasize" placeholder="层数">
+		    </div>
+		  </div>
+		  	<div class="control-group">
+		    <label class="control-label" for="population">常驻人数:</label>
+		    <div class="controls">
+		      <input type="text" name="population" id="population" placeholder="常驻人数">
+		    </div>
+		  </div>
+		  <div class="control-group">
+		    <label class="control-label" for="buildage">建筑年代:</label>
+		    <div class="controls">
+		      <input type="text" name="buildage" id="buildage" placeholder="建筑年代">
+		    </div>
+		  </div>
+		  <div class="control-group">
+		      <div class="span4"><div id="picUploader"></div></div>
+		  </div>
+		</form>
+	  </div>
+	  <div class="modal-footer">
+	    <button class="btn cancle" data-dismiss="modal" aria-hidden="true">取消</button>
+	    <button id="saveBuildingBtn" class="btn btn-primary">确定</button>
+	  </div>
+	</div>
+
+	<!-- 物业点编辑修改对话框 -->
+	<div id="propertyDlg" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-header">
+	    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	    <h3 id="myModalLabel">创建或更新物业点信息</h3>
+	  </div>
+	  <div class="modal-body">
+	    <form id="propertyForm" class="form-horizontal">
+		  <div class="control-group">
+		    <label class="control-label" for="buildingName">物业点名称:</label>
+		    <div class="controls">
+		      <input type="text" name="name" id="propertyName" placeholder="物业点名称" class="required" >
+		    </div>
+		  </div>
+		  <div class="control-group">
+		    <label class="control-label" for="buildingName">物业点编号:</label>
+		    <div class="controls">
+		      <input type="text" name="number" id="propertyNumber" placeholder="物业点编号" class="required" >
+		    </div>
+		  </div>
+		  <div class="control-group">
+		    <label class="control-label" for="buildingName">地市/县区(经度,纬度):</label>
+		    <div class="controls">
+		      <input type="text" name="location" id="propertyLocation" placeholder="地市/县区(经度,纬度)" class="required" >
+		    </div>
+		  </div>
+		  <div class="control-group">
+		    <label class="control-label" for="zonetype">区域类型:</label>
+		    <div class="controls">
+		      	<select name="zonetype" id="zonetype">
+					<option value="阜阳">类型1</option>
+					<option value="阜南">类型2</option>
+					<option value="界首">类型3</option>
+				</select>
+		    </div>
+		  </div>
+		  <div class="control-group">
+		    <label class="control-label" for="property">包含楼宇数:</label>
+		    <div class="controls">
+		      <input type="text" name="property" id="property" placeholder="归属物业点">
+		    </div>
+		  </div>
+		  <div class="control-group">
+		    <label class="control-label" for="property">包含楼宇总面积（平方米）:</label>
+		    <div class="controls">
+		      <input type="text" name="property" id="property" placeholder="归属物业点">
+		    </div>
+		  </div>
+		  	<div class="control-group">
+		    <label class="control-label" for="population">常驻人数:</label>
+		    <div class="controls">
+		      <input type="text" name="population" id="population" placeholder="常驻人数">
+		    </div>
+		  </div>
+		  <div class="control-group">
+		    <label class="control-label" for="buildage">建筑年代:</label>
+		    <div class="controls">
+		      <input type="text" name="buildage" id="buildage" placeholder="建筑年代">
+		    </div>
+		  </div>
+		  <div class="control-group">
+		    <label class="control-label" for="buildage">覆盖情况</label>
+		    <div class="controls">
+		    	<input type="checkbox"> GSM室分是否覆盖
+		    	<input type="checkbox"> TD室分是否覆盖
+		    	<input type="checkbox"> WLAN是否覆盖
+		    	<input type="checkbox"> LTE室分是否覆盖
+		    </div>
+		  </div>
+		  <div class="control-group">
+		    <label class="control-label" for="buildage">建设情况</label>
+		    <div class="controls">
+		      <input type="text" name="buildage" id="buildage" placeholder="建设情况">
+		    </div>
+		  </div>
+		</form>
+	  </div>
+	  <div class="modal-footer">
+	    <button class="btn cancle" data-dismiss="modal" aria-hidden="true">取消</button>
+	    <button id="saveBuildingBtn" class="btn btn-primary">确定</button>
+	  </div>
+	</div>  
+    
+    <!-- Le javascript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script src="js/sharepage.js"></script>
+	<script src="js/sharepage.ext.js"></script>
+ 	<script type="text/javascript" src="http://api.map.baidu.com/api?v=1.5&ak=25086083E53CFc2555f555261246ecb7"></script>
+ 	<!--加载鼠标绘制工具-->
+	<script type="text/javascript" src="js/sharepage.map.js"></script>
+	<link rel="stylesheet" href="css/sharepage.map.css" />
+	<script src="js/main.js"></script>
+	<script src="js/importclient-gen.js"></script>
+
+	
+	<script>
+		
+		function setSizes() {
+				var windowWidth = $(window).width(),
+						windowHeight = $(window).height(),
+						display = $("#listpost").css("display");
+				if($('#listpost').is(':visible')){
+						listWidth = $("#listpost").width();
+						if ($('#panelarrow2').hasClass('arrow-small')){
+							listWidth = 0;
+						}
+				} else {
+						listWidth = 0;
+				}
+				var headerHeight = $("#header").height();
+				var mapToolHeight = $('.map-tool').height();
+
+				$("#allmap, #map_canvas").width(windowWidth - listWidth).height(windowHeight - headerHeight);
+				$("#listpost").height(windowHeight - headerHeight);
+				$(".public-listings").height(windowHeight - headerHeight - 100);
+		}
+		setSizes();
+		$(window).resize(function() { setSizes(); });
+			
+		function hidePostList () {
+		var windowWidth = $(window).width();
+
+		$("#listpost").css('right', '0px').animate({right: "-=385"}, "fast", "swing", function() {
+			$("#panelarrow2").addClass('arrow-small');
+			//$("#listpost").addClass('hide');
+		});
+		$("#panelarrow2").animate({right: "=0"}, "fast", "swing");
+		$('.map_alert').css('right', '50px');
+		$("#allmap, #map_canvas").width(windowWidth);
+
+/*
+		if(MAINMAP.map){
+			google.maps.event.trigger(MAINMAP.map, 'resize');
+		}
+		*/
+    }
+
+	function showPostList () {
+		var windowWidth = $(window).width();
+		$("#panelarrow2").removeClass('arrow-small');
+		//$("#listpost").removeClass('hide');
+		$("#panelarrow2").animate({right: "=360"}, "fast", "swing");
+		$("#listpost").css('right', '-385px').animate({right: "+=385"}, "fast", "swing");
+		$('.map_alert').css('right', '410px');
+		$("#allmap, #map_canvas").width(windowWidth - 385);
+		/*
+		if(MAINMAP.map){
+			google.maps.event.trigger(MAINMAP.map, 'resize');
+		}*/
+	}
+
+	$("#panelarrow2").click(function() {
+		if($("#panelarrow2").hasClass('arrow-small')) {
+			showPostList();
+		} else {
+			hidePostList();
+		}
+	});
+	
+	var $window = $(window);
+
+	function checkWidth() {
+		var windowWidth = $(window).width();
+		if (windowWidth <= 1100) {
+			if ($("#panelarrow2").hasClass('arrow-small') === false){
+				//if the window is smaller than 1100px wide then hide list..
+				hidePostList();
+			}
+		} else {
+			if ($("#panelarrow2").hasClass('arrow-small')){
+				showPostList();
+			}
+		}
+	}
+	// Execute on load
+	checkWidth();
+	// Bind event listener
+	$(window).resize(checkWidth);
+	
+	
+</script>
+
+</html>    
+</body>

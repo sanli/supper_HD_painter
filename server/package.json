@@ -1,0 +1,30 @@
+{
+  "name": "application-name",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app"
+  },
+  "dependencies": {
+    "underscore" : "*",
+    "express": "3.0.5",
+    "ejs": "*",
+    "mongodb": "*",
+    "stylus": "*",
+    "lazy": "*",
+    "iconv": "*",
+    "node-uuid": "*",
+    "dnode":"1.0.2",
+    "browserify" : "2.1.0",
+    "shoe" : "0.0.7",
+    "tracer" : "*",
+    "csv" : "*",
+    "mongoose" : "*",
+    "node.extend" : "*",
+    "iconv-lite" : "*",
+    "excel" : "*",
+    "dateformat" : "*",
+    "cron" : "*",
+    "underscore" : "*"
+  }
+}
