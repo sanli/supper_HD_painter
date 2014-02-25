@@ -99,49 +99,51 @@ exports._assertNotNull = exports.assertNotNull = assertNotNull; // =============
 exports.emptyfn = function(){};
 
 // ============================ 导出csv ===========================
-var fs = require('fs')
-	,iconv   = require('iconv-lite')
-	,csv = require('csv');
-// 把数据导出成CSV文件
-function exportToCSVFile(objs,  filename, exporter, fn){
-	var tmpdir = __dirname+'/uploads';
-		tmpfilename = tmpdir + '/' + filename,
-		exportfile = fs.createWriteStream(tmpfilename);
+// 导出CSV为可选功能
+// 
+// var fs = require('fs')
+// 	,iconv   = require('iconv-lite')
+// 	,csv = require('csv');
+// // 把数据导出成CSV文件
+// function exportToCSVFile(objs,  filename, exporter, fn){
+// 	var tmpdir = __dirname+'/uploads';
+// 		tmpfilename = tmpdir + '/' + filename,
+// 		exportfile = fs.createWriteStream(tmpfilename);
 	
-    csv().from.array(objs)
-	.to(function(data){
-		//输出内容转换为gbk后输出,因为大部分用户是Windows平台 :(
-		var gbkdata = iconv.toEncoding(data, "GBK");
-		fs.writeFile(tmpfilename, gbkdata, function(argument) {
-			console.log("write to GBK success");
-			fn(null, filename);
-		});
-	}).transform(function(data, index){
-		try{
-			if(index === 0)
-				return exporter.head() + '\n' + exporter.data(data);
-			return exporter.data(data);
-		}catch(error){
-			console.trace(error);
-			return "导出出错\n"
-		}
-	})
-	.on('error', fn);
-};
-exports.exportToCSVFile = exportToCSVFile;
+//     csv().from.array(objs)
+// 	.to(function(data){
+// 		//输出内容转换为gbk后输出,因为大部分用户是Windows平台 :(
+// 		var gbkdata = iconv.toEncoding(data, "GBK");
+// 		fs.writeFile(tmpfilename, gbkdata, function(argument) {
+// 			console.log("write to GBK success");
+// 			fn(null, filename);
+// 		});
+// 	}).transform(function(data, index){
+// 		try{
+// 			if(index === 0)
+// 				return exporter.head() + '\n' + exporter.data(data);
+// 			return exporter.data(data);
+// 		}catch(error){
+// 			console.trace(error);
+// 			return "导出出错\n"
+// 		}
+// 	})
+// 	.on('error', fn);
+// };
+// exports.exportToCSVFile = exportToCSVFile;
 
-// 一个缺省的exporter实现,仅仅作为例子
-var defaultExporter = function(){
-	return {
-		head : function(){
-			return  + 'Object.toString()\n';
-		},
+// // 一个缺省的exporter实现,仅仅作为例子
+// var defaultExporter = function(){
+// 	return {
+// 		head : function(){
+// 			return  + 'Object.toString()\n';
+// 		},
 
-		data : function(data){
-			return data.toString() + '\n' ;
-		}
-	}
-}  // 导出csv 
+// 		data : function(data){
+// 			return data.toString() + '\n' ;
+// 		}
+// 	}
+// }  // 导出csv 
 
 // ================ 查询条件表达式处理 ===================
 /**

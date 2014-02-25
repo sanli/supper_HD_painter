@@ -12,6 +12,7 @@
     "mongodb": "*",
     "stylus": "*",
     "lazy": "*",
+    "iconv-lite" : "*",
     "node-uuid": "*",
     "tracer" : "*",
     "mongoose" : "*",
