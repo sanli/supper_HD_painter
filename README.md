@@ -1,4 +1,8 @@
-(supper_HD_painter)
+迁移
+=================
+HTML5版本的代码放在了 https://github.com/sanli/cag-h5 这个项目下面，原来的老项目https://github.com/sanli/supper_HD_painter 打算废弃掉了，后面的每个版本的客户端单独起一个项目，不放到一个统一的目录下
+
+supper_HD_painter
 =================
 超高清艺术图片手机客户端和服务器端
 
